@@ -104,3 +104,7 @@ class RoombaSwitch(ToggleEntity):
         self._state.update(roomba_state)
 
         _LOGGER.debug('{0.name} update received. {1}'.format(self, roomba_state))
+
+    def update(self):
+        _LOGGER.info('{0.name} performing complete update.'.format(self))
+        self.mqtt_client.publish('mission')
